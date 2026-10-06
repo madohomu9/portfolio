@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="刘建峰 - 软件工程专业学生，关注 AI 辅助开发与大语言模型应用，个人作品集">
+  <title>刘建峰 · 个人作品集</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="layout">
+
+    <!-- ======== 左侧固定栏：个人介绍 + 导航 + 技能 ======== -->
+    <aside class="sidebar" aria-label="个人介绍与导航">
+      <div class="brand">
+        <div class="avatar" aria-hidden="true">刘建峰</div>
+        <h1 class="brand-name">刘建峰</h1>
+        <p class="brand-role">软件工程专业学生 · AI 辅助开发方向</p>
+        <p class="brand-brief">平时主要使用 Python、Java 和 TypeScript 进行项目开发，也在持续学习前后端开发、数据可视化和 AI 应用构建。</p>
+      </div>
+
+      <nav class="nav" aria-label="主导航">
+        <a class="nav-link active" href="#projects" data-target="projects">作品项目</a>
+        <a class="nav-link" href="#about" data-target="about">关于我</a>
+        <a class="nav-link" href="#contact" data-target="contact">联系方式</a>
+      </nav>
+
+      <section class="skills" aria-label="技能方向">
+        <h2 class="skills-title">技能方向</h2>
+        <ul class="skills-list">
+          <li>Python</li>
+          <li>Java</li>
+          <li>TypeScript</li>
+          <li>HTML / CSS</li>
+        </ul>
+      </section>
+
+      <p class="sidebar-foot">© <span id="year"></span> 刘建峰</p>
+    </aside>
+
+    <!-- ======== 右侧主内容区 ======== -->
+    <main class="main">
+
+      <!-- 开场介绍 -->
+      <section class="intro" aria-label="开场介绍">
+        <p class="eyebrow">PORTFOLIO · 2026</p>
+        <h2 class="intro-title">你好，我是 <span class="accent">刘建峰</span>，<br>一名软件工程专业的学生，关注 AI 辅助开发与大语言模型技术。</h2>
+        <p class="intro-lead">平时主要使用 Python、Java 和 TypeScript 进行项目开发，也在持续学习前后端开发、数据可视化和 AI 应用构建。向下浏览，或使用左侧导航快速定位。</p>
+      </section>
+
+      <!-- 项目作品（由 JS 根据数据渲染） -->
+      <section class="section" id="projects" aria-label="项目作品">
+        <header class="section-head reveal">
+          <p class="eyebrow">SELECTED WORK</p>
+          <h2>项目作品</h2>
+        </header>
+        <div class="projects-list" id="projectsList"></div>
+      </section>
+
+      <!-- 关于我 -->
+      <section class="section" id="about" aria-label="关于我">
+        <header class="section-head reveal">
+          <p class="eyebrow">ABOUT</p>
+          <h2>关于我</h2>
+        </header>
+        <div class="about-body reveal">
+          <p>我叫刘建峰，是一名软件工程专业学生，目前主要关注 AI 辅助开发与大语言模型技术。</p>
+          <p>平时主要使用 Python、Java 和 TypeScript 进行项目开发，也在持续学习前后端开发、数据可视化和 AI 应用构建。</p>
+          <ul class="about-points">
+            <li><span class="point-mark">01</span> 软件工程专业，广州软件学院在读</li>
+            <li><span class="point-mark">02</span> 当前方向：AI 辅助开发、大语言模型应用</li>
+            <li><span class="point-mark">03</span> 主要使用 Python、Java、TypeScript 进行开发</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 联系方式 -->
+      <section class="section" id="contact" aria-label="联系方式">
+        <header class="section-head reveal">
+          <p class="eyebrow">CONTACT</p>
+          <h2>联系方式</h2>
+        </header>
+        <div class="contact-body reveal">
+          <p class="contact-tip">如果有实习机会、项目合作或任何想聊的话题，欢迎随时联系我。</p>
+          <ul class="contact-list">
+            <li><span class="contact-label">邮箱</span><a class="contact-link" href="mailto:liujianfeng@example.com">liujianfeng@example.com</a></li>
+            <li><span class="contact-label">微信</span><span class="contact-text">liujianfeng</span></li>
+            <li><span class="contact-label">GitHub</span><a class="contact-link" href="https://github.com/liujianfeng-dev" target="_blank" rel="noopener">github.com/liujianfeng-dev</a></li>
+            <li><span class="contact-label">主页</span><a class="contact-link" href="https://liujianfeng.dev" target="_blank" rel="noopener">liujianfeng.dev</a></li>
+            <li><span class="contact-label">所在地</span><span class="contact-text">中国 · 广州</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <footer class="main-foot">
+        <p>Designed &amp; Built with HTML / CSS / JavaScript · 2026</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="js/projects.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

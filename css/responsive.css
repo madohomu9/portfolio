@@ -1,0 +1,121 @@
+/* ==========================================================
+   responsive.css - 移动端与窄屏适配
+   断点：≤ 860px 切换为上下布局
+   ========================================================== */
+
+@media (max-width: 860px) {
+  /* 左右分区 -> 上下布局 */
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* 侧栏变为顶部区域，不再固定 */
+  .sidebar {
+    position: static;
+    height: auto;
+    padding: 32px 24px 24px;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .avatar {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 14px;
+    font-size: 20px;
+  }
+
+  .brand-name { font-size: 22px; }
+  .brand-brief { max-width: 320px; }
+
+  /* 导航改为横向滚动 */
+  .nav {
+    flex-direction: row;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .nav-link::before {
+    left: 50%;
+    top: auto;
+    bottom: -4px;
+    width: 0;
+    height: 3px;
+    transform: translateX(-50%);
+    transition: width 0.25s ease;
+  }
+
+  .nav-link.active::before {
+    height: 3px;
+    width: 18px;
+  }
+
+  /* 技能方向居中展示 */
+  .skills {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .skills-list { justify-content: center; }
+
+  .sidebar-foot {
+    margin-top: 24px;
+    padding-top: 16px;
+    text-align: center;
+  }
+
+  /* 主内容区 */
+  .main {
+    padding: 48px 24px 32px;
+  }
+
+  .intro { padding-bottom: 48px; }
+
+  .intro-title {
+    font-size: 26px;
+    line-height: 1.4;
+  }
+
+  .section { padding-bottom: 56px; }
+  .section-head { margin-bottom: 28px; }
+  .section-head h2 { font-size: 24px; }
+
+  /* 项目标题与序号同行紧凑排列 */
+  .project { padding: 32px 0; }
+  .project-head { gap: 14px; margin-bottom: 20px; }
+  .project-title { font-size: 20px; }
+
+  /* 分栏版式在窄屏下改回纵向堆叠 */
+  .project--split .project-body {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .project--split .project-summary { margin-top: 0; }
+  .project--split.reverse .project-body { direction: ltr; }
+
+  .project-summary { margin-top: 16px; }
+}
+
+/* 小屏微调 */
+@media (max-width: 420px) {
+  .main { padding: 40px 18px 28px; }
+
+  .contact-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .contact-label { width: auto; }
+}
