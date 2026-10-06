@@ -3,6 +3,8 @@
    1. 根据 projects 数据渲染项目列表
    2. 滚动时高亮当前导航
    3. 入场淡入动画（尊重 prefers-reduced-motion）
+   4. 页脚年份
+   5. 深浅主题切换（localStorage 记忆）
    ========================================================== */
 (function () {
   'use strict';
@@ -150,7 +152,44 @@
     if (yearEl) yearEl.textContent = new Date().getFullYear();
   }
 
+  /* ---------- 5. 深浅主题切换 ---------- */
+  function initTheme() {
+    var root = document.documentElement;
+    var toggle = document.getElementById('themeToggle');
+    var STORAGE_KEY = 'theme';
+
+    function applyTheme(theme) {
+      var isDark = theme === 'dark';
+      root.setAttribute('data-theme', theme);
+      if (toggle) {
+        toggle.setAttribute('aria-pressed', String(isDark));
+        toggle.setAttribute('aria-label', isDark ? '切换到浅色主题' : '切换到深色主题');
+      }
+    }
+
+    // 读取上次选择（localStorage 可能被禁用，容错处理）
+    var saved = null;
+    try {
+      saved = localStorage.getItem(STORAGE_KEY);
+    } catch (e) { /* 忽略存储不可用 */ }
+
+    applyTheme(saved === 'dark' ? 'dark' : 'light');
+
+    if (toggle) {
+      toggle.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+        try {
+          localStorage.setItem(STORAGE_KEY, next);
+        } catch (e) { /* 忽略存储不可用 */ }
+      });
+    }
+  }
+
   /* ---------- 启动 ---------- */
+  // 主题需在渲染前同步应用，避免首屏闪烁
+  initTheme();
+
   document.addEventListener('DOMContentLoaded', function () {
     renderProjects();
     initNavHighlight();
